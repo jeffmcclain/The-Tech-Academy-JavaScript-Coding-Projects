@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Pizza Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style2.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <!-- header -->
+    <div class="header-main">
+        <div class="header-text">
+            <h1>The Pizza Store</h1>
+        </div>
+    </div>
+    <!-- /header -->    
+    
+    <!-- order form -->
+    <form class="order">
+
+        <!-- form header -->
+        <div class="form-head">
+            <h2>Build Your Pizza</h2>
+        </div>
+        <!-- /form header -->
+
+        <!-- size -->
+        <fieldset class="form-container">
+            <legend class="form-sub-head">Size</legend>
+            <div class="options" id="options-size">
+                <label for="personal"><input type="radio" id="personal" name="size" value="6" onchange="updateTotal()">&nbsp&nbspPersonal</label><br>
+                <label for="medium"><input type="radio" id="medium" name="size" value="10" onchange="updateTotal()">&nbsp&nbspMedium</label><br>
+                <label for="large"><input type="radio" id="large" name="size" value="14" onchange="updateTotal()">&nbsp&nbspLarge</label><br>
+                <label for="extraLarge"><input type="radio" id="extraLarge" name="size" value="16" onchange="updateTotal()">&nbsp&nbspExtra Large</label><br>
+            </div>
+        </fieldset>
+        <!-- /size -->
+
+        <!-- crust -->
+        <fieldset class="form-container">
+            <legend class="form-sub-head">Crust</legend>
+            <div class="options" id="options-crust">
+                <label for="plainCrust"><input type="radio" id="plainCrust" name="crust" value="0" onchange="updateTotal()">&nbsp&nbspPlain</label><br>
+                <label for="garlicButter"><input type="radio" id="garlicButter" name="crust" value="0" onchange="updateTotal()">&nbsp&nbspGarlic Butter</label><br>
+                <label for="cheeseStuffed"><input type="radio" id="cheeseStuffed" name="crust" value="3" onchange="updateTotal()">&nbsp&nbspCheese Stuffed</label><br>
+                <label for="spicy"><input type="radio" id="spicy" name="crust" value="0" onchange="updateTotal()">&nbsp&nbspSpicy</label><br>
+                <label for="houseSpecial"><input type="radio" id="houseSpecial" name="crust" value="0" onchange="updateTotal()">&nbsp&nbspHouse Special</label><br>
+            </div>
+        </fieldset>
+        <!-- /crust -->
+
+        <!-- sauce -->
+        <fieldset class="form-container">
+            <legend class="form-sub-head">Sauce</legend>
+            <div class="options" id="options-sauce">
+                <label for="marinara"><input type="radio" id="marinara" name="sauce" value="0" onchange="updateTotal()">&nbsp&nbspMarinara</label><br>
+                <label for="white"><input type="radio" id="white" name="sauce" value="0" onchange="updateTotal()">&nbsp&nbspWhite</label><br>
+                <label for="bbq"><input type="radio" id="bbq" name="sauce" value="0" onchange="updateTotal()">&nbsp&nbspBarbeque</label><br>
+                <label for="noSauce"><input type="radio" id="noSauce" name="sauce" value="0" onchange="updateTotal()">&nbsp&nbspNone</label><br>
+            </div>
+        </fieldset>
+        <!-- /sauce -->
+
+        <!-- cheese -->
+        <fieldset class="form-container">
+            <legend class="form-sub-head">Cheese</legend>
+            <div class="options" id="options-cheese">
+                <label for="regCheese"><input type="radio" id="regCheese" name="cheese" value="0" onchange="updateTotal()">&nbsp&nbspCheese</label><br>
+                <label for="extraCheese"><input type="radio" id="extraCheese" name="cheese" value="3" onchange="updateTotal()">&nbsp&nbspExtra Cheese</label><br>
+                <label for="noCheese"><input type="radio" id="noCheese" name="cheese" value="0" onchange="updateTotal()">&nbsp&nbspNone</label><br>
+            </div>
+        </fieldset>
+        <!-- /cheese -->
+
+        <!-- meat -->
+        <fieldset class="form-container">
+            <legend class="form-sub-head">Meat - choose one</legend>
+            <h5>($1 charge for each additional selection)</h5>
+            <div class="options" id="options-meat">
+                <label for="pepperoni"><input type="checkbox" id="pepperoni" name="meat" value="Pepperoni" onchange="updateTotal()">&nbsp&nbspPepperoni</label><br>
+                <label for="sausage"><input type="checkbox" id="sausage" name="meat" value="Sausage" onchange="updateTotal()">&nbsp&nbspSausage</label><br>
+                <label for="canadianBacon"><input type="checkbox" id="canadianBacon" name="meat" value="Canadian Bacon" onchange="updateTotal()">&nbsp&nbspCanadian Bacon</label><br>
+                <label for="groundBeef"><input type="checkbox" id="groundBeef" name="meat" value="Ground Beef" onchange="updateTotal()">&nbsp&nbspGround Beef</label><br>
+                <label for="anchovy"><input type="checkbox" id="anchovy" name="meat" value="Anchovy" onchange="updateTotal()">&nbsp&nbspAnchovy</label><br>
+                <label for="chicken"><input type="checkbox" id="chicken" name="meat" value="Chicken" onchange="updateTotal()">&nbsp&nbspChicken</label><br>
+            </div>
+        </fieldset>
+        <!-- /meat -->
+
+        <!-- veggies -->
+        <fieldset class="form-container" id="veggie-container">
+            <legend class="form-sub-head">Veggies - choose one</legend>
+            <h5>($1 charge for each additional selection)</h5>    
+            <div class="options" id="options-veggie">
+                <label for="tomato"><input type="checkbox" id="tomato" name="veggie" value="Tomato" onchange="updateTotal()">&nbsp&nbspTomato</label><br>
+                <label for="onion"><input type="checkbox" id="onion" name="veggie" value="Onion" onchange="updateTotal()">&nbsp&nbspOnion</label><br>
+                <label for="olive"><input type="checkbox" id="olive" name="veggie" value="Olive" onchange="updateTotal()">&nbsp&nbspOlive</label><br>
+                <label for="greenPepper"><input type="checkbox" id="greenPepper" name="veggie" value="Green Pepper" onchange="updateTotal()">&nbsp&nbspGreen Pepper</label><br>
+                <label for="mushroom"><input type="checkbox" id="mushroom" name="veggie" value="Mushroom" onchange="updateTotal()">&nbsp&nbspMushroom</label><br>
+                <label for="pineapple"><input type="checkbox" id="veg6" name="veggie" value="Pineapple" onchange="updateTotal()">&nbsp&nbspPineapple</label><br>
+                <label for="spinach"><input type="checkbox" id="spinach" name="veggie" value="Spinach" onchange="updateTotal()">&nbsp&nbspSpinach</label><br>
+                <label for="jalepeno"><input type="checkbox" id="jalepeno" name="veggie" value="Jalepeno" onchange="updateTotal()">&nbsp&nbspJalapeno</label><br>
+            </div>
+        </fieldset>
+        <!-- /veggies -->
+
+        
+
+    </form>
+    <!-- /order form -->
+
+    <!-- invoice -->
+
+    <section class="invoice">
+        <div class="invoice-container">
+            <h3><strong>Your Order:</strong></h3>
+            <div class="invoice-body">
+                <div class="row">
+                    <div class="col-10" id="invoice-size"></div>
+                    <div class="col-2" id="size-price"></div>
+                </div>
+                <div class="row">
+                    <div class="col-10" id="invoice-crust"></div>
+                    <div class="col-2" id="crust-price"></div>
+                </div>
+                <div class="row">
+                    <div class="col-10" id="invoice-sauce"></div>
+                    <div class="col-2" id="sauce-price"></div>
+                </div>
+                <div class="row">
+                    <div class="col-10" id="invoice-cheese"></div>
+                    <div class="col-2" id="cheese-price"></div>
+                </div>
+                <div class="row">
+                    <div class="col-10" id="invoice-meat"></div>
+                    <div class="col-2" id="meat-price"></div>
+                </div>
+                <div class="row">
+                    <div class="col-10" id="invoice-veggie"></div>
+                    <div class="col-2" id="veggie-price"></div>
+                </div><br><br> 
+                <div class="row">
+                    <div class="col-10"><strong>Total:</strong></div>
+                    <div class="col-2" id="total-price"><strong></strong></div>
+                </div>
+            </div>
+            <!-- submit order -->
+            <div class="order">
+                <button class="order-btns" type="button" onclick="Clear()">Cancel</button>
+                <button class="order-btns" type="button" onclick="Order()" data-toggle="modal" data-target="#invoice">Continue</button>
+            </div>
+            <!-- /submit order -->  
+        </div>
+    </section>    
+    <!-- /invoice -->
+        
+    <!-- update invoice -->
+    <script>
+        function updateTotal() {
+
+            // check size
+            var sizeLabel = '';
+            var sizePrice = 0;           
+            function checkSize() {               
+                if (document.getElementById('personal').checked) {
+                    sizeLabel = "Personal";
+                    sizePrice += 6;
+                }
+                if (document.getElementById('medium').checked) {
+                    sizeLabel = "Medium";
+                    sizePrice += 10;
+                }
+                if (document.getElementById('large').checked) {
+                    sizeLabel = "Large";
+                    sizePrice += 14;
+                }
+                if (document.getElementById('extraLarge').checked) {
+                    sizeLabel = "Extra Large";
+                    sizePrice += 16;
+                }
+            } 
+            checkSize();
+            document.getElementById('invoice-size').innerHTML = sizeLabel;
+            document.getElementById('size-price').innerHTML = "$ " + sizePrice;
+            // end check size
+
+            // check crust
+            var crustLabel = '';
+            var crustPrice = 0;
+            function checkCrust() {
+                if (document.getElementById('plainCrust').checked) {
+                    crustLabel = "Plain";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('garlicButter').checked) {
+                    crustLabel = "Garlic Butter";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('cheeseStuffed').checked) {
+                    crustLabel = "Cheese Stuffed";
+                    crustPrice += 3;
+                }
+                if (document.getElementById('spicy').checked) {
+                    crustLabel = "Spicy";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('houseSpecial').checked) {
+                    crustLabel = "House Special";
+                    crustPrice += 0;
+                }
+            } 
+            checkCrust();
+            document.getElementById('invoice-crust').innerHTML = crustLabel;
+            document.getElementById('crust-price').innerHTML = "$ " + crustPrice;
+            // end check crust
+
+            // check sauce
+            var sauceLabel = '';
+            var saucePrice = 0;
+            function checkSauce() {
+                if (document.getElementById('marinara').checked) {
+                    sauceLabel = "Marinara";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('white').checked) {
+                    sauceLabel = "White";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('bbq').checked) {
+                    sauceLabel = "Barbecue";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('noSauce').checked) {
+                    sauceLabel = "No Sauce";
+                    saucePrice += 0;
+                }
+            }
+            checkSauce();
+            document.getElementById('invoice-sauce').innerHTML = sauceLabel;
+            document.getElementById('sauce-price').innerHTML = "$ " + saucePrice;
+            // end check sauce
+
+            // check cheese
+            var cheeseLabel = '';
+            var cheesePrice = 0;
+            function checkCheese() {
+                if (document.getElementById('regCheese').checked) {
+                cheeseLabel = "Regular";
+                cheesePrice += 0;
+                }
+                if (document.getElementById('extraCheese').checked) {
+                    cheeseLabel = "Extra Cheese";
+                    cheesePrice += 3;
+                }
+                if (document.getElementById('noCheese').checked) {
+                    cheeseLabel = "No Cheese";
+                    cheesePrice += 0;
+                }
+            }
+            checkCheese();
+            document.getElementById('invoice-cheese').innerHTML = cheeseLabel;
+            document.getElementById('cheese-price').innerHTML = "$ " + cheesePrice;
+            // end check cheese
+            
+            // get meat
+            var meatLabel = '';
+            var meatTotal = 0;
+            var selectedMeat = [];
+            var meatArray = document.getElementsByName("meat");
+            function getMeat() {    
+                for (var i = 0; i < meatArray.length; i++) {
+                    if (meatArray[i].checked) {
+                            selectedMeat.push(meatArray[i].value);
+                            meatLabel = meatLabel + meatArray[i].value + ' ';
+                    }
+                }
+                var meatCount = selectedMeat.length;
+                if (meatCount > 1) {
+                    meatTotal = (meatCount -1);
+                } else {
+                    meatTotal =0;
+                }
+            }
+            getMeat();
+            document.getElementById('invoice-meat').innerHTML = meatLabel;
+            document.getElementById('meat-price').innerHTML = "$ " + meatTotal;
+            // end get meat
+
+            // get veggie
+            var vegLabel = '';
+            var vegTotal = 0;
+            var selectedVeg = [];
+            var vegArray = document.getElementsByName("veggie");
+            function getVeg() {    
+                for (var j = 0; j < vegArray.length; j++) {
+                    if (vegArray[j].checked) {
+                            selectedVeg.push(vegArray[j].value);
+                            vegLabel = vegLabel + vegArray[j].value + ' ';
+                    }
+                }
+                var vegCount = selectedVeg.length;
+                if (vegCount > 1) {
+                    vegTotal = (vegCount -1);
+                } else {
+                    vegTotal =0;
+                }
+            }
+            getVeg();
+            document.getElementById('invoice-veggie').innerHTML = vegLabel;
+            document.getElementById('veggie-price').innerHTML = "$ " + vegTotal;
+            // end get meat
+
+            //add total   
+            var totalPrice = sizePrice + crustPrice + saucePrice + cheesePrice + meatTotal + vegTotal;
+            document.getElementById('total-price').innerHTML = "$ " + totalPrice;
+            // end add total
+        } 
+    </script>
+    <!-- end update invoice -->
+
+    <!-- clear order -->
+    <script>
+        function Clear() {
+            // clear size
+            var clearSize = document.getElementsByName('size');
+            for (var k = 0; k < clearSize.length; k++) {
+                clearSize[k].checked = false;
+            }
+            document.getElementById('invoice-size').innerHTML = '';
+            document.getElementById('size-price').innerHTML = '';
+            // end clear size
+
+            // clear crust
+            var clearCrust = document.getElementsByName('crust');
+            for (var l = 0; l < clearCrust.length; l++) {
+                clearCrust[l].checked = false;
+            }
+            document.getElementById('invoice-crust').innerHTML = '';
+            document.getElementById('crust-price').innerHTML = '';
+            // end clear crust
+
+            // clear sauce
+            var clearSauce = document.getElementsByName('sauce');
+            for (var m = 0; m < clearSauce.length; m++) {
+                clearSauce[m].checked = false;
+            }
+            document.getElementById('invoice-sauce').innerHTML = '';
+            document.getElementById('sauce-price').innerHTML = '';
+            // end clear sauce
+
+            // clear cheese
+            var clearCheese = document.getElementsByName('cheese');
+            for (var n = 0; n < clearCheese.length; n++) {
+                clearCheese[n].checked = false;
+            }
+            document.getElementById('invoice-cheese').innerHTML = '';
+            document.getElementById('cheese-price').innerHTML = '';
+            // end clear cheese
+
+            // clear meat
+            var clearMeat = document.getElementsByName('meat');
+            for (var n = 0; n < clearMeat.length; n++) {
+                clearMeat[n].checked = false;
+            }
+            document.getElementById('invoice-meat').innerHTML = '';
+            document.getElementById('meat-price').innerHTML = '';
+            // end clear meat
+
+            // clear veggie
+            var clearVeg = document.getElementsByName('veggie');
+            for (var o = 0; o < clearVeg.length; o++) {
+                clearVeg[o].checked = false;
+            }
+            document.getElementById('invoice-veggie').innerHTML = '';
+            document.getElementById('veggie-price').innerHTML = '';
+            // end clear veggie
+            
+            // clear Total
+            document.getElementById('total-price').innerHTML = '$ 0';
+            // end clear total
+        }
+    
+    
+    </script>
+    <!-- end clear order -->
+
+    <!--  bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-color: #F2F2F2;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 100px;
+    font: bold 100px sans-serif;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h3 {
+    padding: 10px 10px 0px;
+}
+
+h5 {
+    font-size: .8em;
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+/* h2 {
+    text-align: center;
+} */
+
+.header-main {
+    width: 100%;
+    height: 550px;
+    text-align: center;
+    background: url(../images/pizza_head.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+form {
+    width: 50%;
+    float: left;
+    margin: 100px 5%;
+    padding: 20px 0px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.form-head {
+    font-size: 2em;
+    text-align: center;
+}
+
+.form-container {
+    margin: 20px 200px auto;
+    border-bottom: 2px solid #808080;
+    /* background-color: #F2F2F2; */
+
+}
+
+.form-sub-head {
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.form-image {
+    display: inline-block;
+}
+
+.options {
+    margin: 20px 50px;
+    text-align: left;
+}
+
+.order {
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.order-btns {
+    color: #fff;
+    background-color: gray;
+    font-size: 24px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.invoice {
+    width: 30%;
+    float: right;
+    margin: 100px 5%;
+    top: 0;
+    overflow: visible;
+}
+
+.invoice-container { 
+    position: sticky;
+    top: 4em;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.invoice-body {
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.row {
+    padding: 5px;
+}
+
+#veggie-container {
+    border-bottom: none;
+}
+
+
+
