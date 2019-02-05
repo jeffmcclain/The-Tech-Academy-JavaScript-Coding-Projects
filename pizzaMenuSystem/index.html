@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Pizza Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+   
+        <!-- header -->
+        <div class="header-main">
+            <div class="header-text">
+                <h1>The Pizza Store</h1>
+            </div>
+        </div>
+        <!-- /header -->
+
+        <!-- order form -->
+        <form id="order">
+            <div class="form-head">
+                <h2>Build Your Pizza</h2>
+            </div>
+            
+            <!-- size -->                
+            <div class="form-container">
+                <h2 class="form-sub-head">Size</h2>    
+                <!-- <div class="form-image">
+                    <img src="./images/pizza_size.png" alt="">
+                </div> -->
+                <div class="options" id="options-size">
+                    <input type="radio" name="size" value="personal">&nbsp&nbspPersonal<br>
+                    <input type="radio" name="size" value="medium">&nbsp&nbspMedium<br>
+                    <input type="radio" name="size" value="large" checked>&nbsp&nbspLarge<br>
+                    <input type="radio" name="size" value="extraLarge">&nbsp&nbspExtra Large<br>
+                </div>               
+            </div>
+            <!-- /size -->
+
+            <!-- crust -->
+            <div class="form-container">
+                    <h2 class="form-sub-head">Crust</h2>    
+                    <div class="options" id="options-crust">
+                        <input type="radio" name="crust" value="plain" checked>&nbsp&nbspPlain<br>
+                        <input type="radio" name="crust" value="garlicButter">&nbsp&nbspGarlic Butter<br>
+                        <input type="radio" name="crust" value="cheeseStuffed">&nbsp&nbspCheese Stuffed<br>
+                        <input type="radio" name="crust" value="spicy">&nbsp&nbspSpicy<br>
+                        <input type="radio" name="crust" value="houseSpecial">&nbsp&nbspHouse Special<br>
+                    </div>               
+                </div>
+            <!-- /crust -->
+
+            <!-- sauce -->
+            <div class="form-container">
+                    <h2 class="form-sub-head">Sauce</h2>    
+                    <div class="options" id="options-sauce">
+                        <input type="radio" name="sauce" value="marinara" checked>&nbsp&nbspMarinara<br>
+                        <input type="radio" name="sauce" value="white">&nbsp&nbspWhite<br>
+                        <input type="radio" name="sauce" value="barbeque">&nbsp&nbspBarbeque<br>
+                        <input type="radio" name="sauce" value="none">&nbsp&nbspNone<br>
+                    </div>               
+                </div>
+            <!-- /sauce -->
+
+            <!-- cheese -->
+            <div class="form-container">
+                    <h2 class="form-sub-head">Cheese</h2>    
+                    <div class="options" id="options-cheese">
+                        <input type="radio" name="cheese" value="regular" checked>&nbsp&nbspRegular<br>
+                        <input type="radio" name="cheese" value="extraCheese">&nbsp&nbspExtra Cheese<br>
+                        <input type="radio" name="cheese" value="none">&nbsp&nbspNone<br>
+                    </div>               
+                </div>
+            <!-- /cheese -->
+
+            <!-- meat -->
+            <div class="form-container">
+                    <h2 class="form-sub-head">Meat - choose one</h2>
+                    <h5>($1 charge for each additional selection)</h5>    
+                    <div class="options" id="options-meat">
+                        <input type="checkbox" name="meat" value="pepperoni">&nbsp&nbspPepperoni<br>
+                        <input type="checkbox" name="meat" value="sausage">&nbsp&nbspSausage<br>
+                        <input type="checkbox" name="meat" value="canadianBacon">&nbsp&nbspCanadian Bacon<br>
+                        <input type="checkbox" name="meat" value="groundBeef">&nbsp&nbspGround Beef<br>
+                        <input type="checkbox" name="meat" value="anchovy">&nbsp&nbspAnchovy<br>
+                        <input type="checkbox" name="meat" value="chicken">&nbsp&nbspChicken<br>
+                    </div>               
+                </div>
+            <!-- /meat -->
+
+            <!-- veggies -->
+            <div class="form-container" id="veggie-container">
+                    <h2 class="form-sub-head">Veggies - choose one</h2>
+                    <h5>($1 charge for each additional selection)</h5>    
+                    <div class="options" id="options-veggie">
+                        <input type="checkbox" name="veggie" value="tomatoes">&nbsp&nbspTomatoes<br>
+                        <input type="checkbox" name="veggie" value="onions">&nbsp&nbspOnions<br>
+                        <input type="checkbox" name="veggie" value="olives">&nbsp&nbspOlives<br>
+                        <input type="checkbox" name="veggie" value="greenPeppers">&nbsp&nbspGreen Peppers<br>
+                        <input type="checkbox" name="veggie" value="mushrooms">&nbsp&nbspMushrooms<br>
+                        <input type="checkbox" name="veggie" value="pineapple">&nbsp&nbspPineapple<br>
+                        <input type="checkbox" name="veggie" value="spinach">&nbsp&nbspSpinach<br>
+                        <input type="checkbox" name="veggie" value="jalapeno">&nbsp&nbspJalapeno<br>
+                    </div>               
+                </div>
+            <!-- /veggies -->
+
+            <!-- submit order -->
+            <div class="order">
+                <button class="order-btns" type="button" onclick="Clear()">Cancel</button>
+                <button class="order-btns" type="button" onclick="Order()" data-toggle="modal" data-target="#invoice">Continue</button>
+            </div>
+            <!-- /submit order -->
+
+        </form>
+
+        <!-- invoice -->
+        
+            <!-- this is a bootstrap modal -->
+            <div class="modal fade" id="invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Your Order:</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-10" id="invoice-size"></div>
+                                <div class="col-2" id="size-cost"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10" id="invoice-crust">Crust</div>
+                                <div class="col-2" id="crust-cost">Cost</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10" id="invoice-sauce">Sauce</div>
+                                <div class="col-2" id="sauce-cost">Cost</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10" id="invoice-cheese">Cheese</div>
+                                <div class="col-2" id="cheese-cost">Cost</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10" id="invoice-meat">Meat</div>
+                                <div class="col-2" id="meat-cost">Cost</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10" id="invoice-veggie">Veggie</div>
+                                <div class="col-2" id="veggie-cost">Cost</div>
+                            </div><br><br> 
+                            <div class="row">
+                                <div class="col-10"><strong>Total:</strong></div>
+                                <div class="col-2" id="total-price"><strong>Price</strong></div>
+                            </div>  
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary">Place Order</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <!-- /modal -->
+
+        <!-- /invoice -->
+           
+        <script>
+
+            function Order() {
+
+                // check size
+            var sizeLabel = '';
+            var sizePrice = 0;           
+            function checkSize() {               
+                if (document.getElementById('personal').checked) {
+                    sizeLabel = "Personal";
+                    sizePrice += 6;
+                }
+                if (document.getElementById('medium').checked) {
+                    sizeLabel = "Medium";
+                    sizePrice += 10;
+                }
+                if (document.getElementById('large').checked) {
+                    sizeLabel = "Large";
+                    sizePrice += 14;
+                }
+                if (document.getElementById('extraLarge').checked) {
+                    sizeLabel = "Extra Large";
+                    sizePrice += 16;
+                }
+            } 
+            checkSize();
+            document.getElementById('invoice-size').innerHTML = sizeLabel;
+            document.getElementById('size-price').innerHTML = "$ " + sizePrice;
+            // end check size
+
+            // check crust
+            var crustLabel = '';
+            var crustPrice = 0;
+            function checkCrust() {
+                if (document.getElementById('plainCrust').checked) {
+                    crustLabel = "Plain";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('garlicButter').checked) {
+                    crustLabel = "Garlic Butter";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('cheeseStuffed').checked) {
+                    crustLabel = "Cheese Stuffed";
+                    crustPrice += 3;
+                }
+                if (document.getElementById('spicy').checked) {
+                    crustLabel = "Spicy";
+                    crustPrice += 0;
+                }
+                if (document.getElementById('houseSpecial').checked) {
+                    crustLabel = "House Special";
+                    crustPrice += 0;
+                }
+            } 
+            checkCrust();
+            document.getElementById('invoice-crust').innerHTML = crustLabel;
+            document.getElementById('crust-price').innerHTML = "$ " + crustPrice;
+            // end check crust
+
+            // check sauce
+            var sauceLabel = '';
+            var saucePrice = 0;
+            function checkSauce() {
+                if (document.getElementById('marinara').checked) {
+                    sauceLabel = "Marinara";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('white').checked) {
+                    sauceLabel = "White";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('bbq').checked) {
+                    sauceLabel = "Barbecue";
+                    saucePrice += 0;
+                }
+                if (document.getElementById('noSauce').checked) {
+                    sauceLabel = "No Sauce";
+                    saucePrice += 0;
+                }
+            }
+            checkSauce();
+            document.getElementById('invoice-sauce').innerHTML = sauceLabel;
+            document.getElementById('sauce-price').innerHTML = "$ " + saucePrice;
+            // end check sauce
+
+            // check cheese
+            var cheeseLabel = '';
+            var cheesePrice = 0;
+            function checkCheese() {
+                if (document.getElementById('regCheese').checked) {
+                cheeseLabel = "Regular";
+                cheesePrice += 0;
+                }
+                if (document.getElementById('extraCheese').checked) {
+                    cheeseLabel = "Extra Cheese";
+                    cheesePrice += 3;
+                }
+                if (document.getElementById('noCheese').checked) {
+                    cheeseLabel = "No Cheese";
+                    cheesePrice += 0;
+                }
+            }
+            checkCheese();
+            document.getElementById('invoice-cheese').innerHTML = cheeseLabel;
+            document.getElementById('cheese-price').innerHTML = "$ " + cheesePrice; 
+                
+                
+            }
+
+        </script>
+        
+
+    <!--  bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
